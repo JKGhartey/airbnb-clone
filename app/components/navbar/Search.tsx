@@ -2,21 +2,20 @@
 
 import { useSearchParams } from "next/navigation";
 import { useMemo, useState } from "react";
-import { BiSearch } from "react-icons/bi";
+import { BiSearch  } from "react-icons/bi";
+import {RxCross2} from "react-icons/rx"
 import { differenceInDays } from "date-fns";
 
 import useSearchModal from "@/app/hooks/useSearchModal";
 import useCountries from "@/app/hooks/useCountries";
 
 const Search = () => {
-
-  
   const searchModal = useSearchModal();
   const params = useSearchParams();
   const { getByValue } = useCountries();
-  
-  const [submitted, setSubmitted] = useState(!!params)
-  
+
+  const [submitted, setSubmitted] = useState(false);
+
   const locationValue = params?.get("locationValue");
   const startDate = params?.get("startDate");
   const endDate = params?.get("endDate");
@@ -53,6 +52,13 @@ const Search = () => {
 
     return "Add Guests";
   }, [guestCount]);
+
+  const Submitted = useMemo(() => {
+    if (guestCount || startDate || endDate || locationValue) {
+      return true;
+    }
+    return false;
+  }, [guestCount, startDate, endDate, locationValue]);
 
   return (
     <div
@@ -121,7 +127,7 @@ const Search = () => {
               text-white
             "
           >
-            <BiSearch size={18} />
+            {Submitted ? <RxCross2 size={18} /> : <BiSearch size={18} />}
           </div>
         </div>
       </div>
