@@ -1,32 +1,29 @@
-"use client";
+'use client';
 
-import { useSearchParams } from "next/navigation";
-import { useMemo, useState } from "react";
-import { BiSearch  } from "react-icons/bi";
-import {RxCross2} from "react-icons/rx"
-import { differenceInDays } from "date-fns";
+import { useSearchParams } from 'next/navigation';
+import { useMemo } from 'react';
+import { BiSearch } from 'react-icons/bi';
+import { differenceInDays } from 'date-fns';
 
-import useSearchModal from "@/app/hooks/useSearchModal";
-import useCountries from "@/app/hooks/useCountries";
+import useSearchModal from '@/app/hooks/useSearchModal';
+import useCountries from '@/app/hooks/useCountries';
 
 const Search = () => {
   const searchModal = useSearchModal();
   const params = useSearchParams();
   const { getByValue } = useCountries();
 
-  const [submitted, setSubmitted] = useState(false);
-
-  const locationValue = params?.get("locationValue");
-  const startDate = params?.get("startDate");
-  const endDate = params?.get("endDate");
-  const guestCount = params?.get("guestCount");
+  const  locationValue = params?.get('locationValue'); 
+  const  startDate = params?.get('startDate');
+  const  endDate = params?.get('endDate');
+  const  guestCount = params?.get('guestCount');
 
   const locationLabel = useMemo(() => {
     if (locationValue) {
       return getByValue(locationValue as string)?.label;
     }
 
-    return "Anywhere";
+    return 'Anywhere';
   }, [locationValue, getByValue]);
 
   const durationLabel = useMemo(() => {
@@ -42,7 +39,7 @@ const Search = () => {
       return `${diff} Days`;
     }
 
-    return "Any Week";
+    return 'Any Week'
   }, [startDate, endDate]);
 
   const guestLabel = useMemo(() => {
@@ -50,17 +47,10 @@ const Search = () => {
       return `${guestCount} Guests`;
     }
 
-    return "Add Guests";
+    return 'Add Guests';
   }, [guestCount]);
 
-  const Submitted = useMemo(() => {
-    if (guestCount || startDate || endDate || locationValue) {
-      return true;
-    }
-    return false;
-  }, [guestCount, startDate, endDate, locationValue]);
-
-  return (
+  return ( 
     <div
       onClick={searchModal.onOpen}
       className="
@@ -75,7 +65,7 @@ const Search = () => {
         cursor-pointer
       "
     >
-      <div
+      <div 
         className="
           flex 
           flex-row 
@@ -83,7 +73,7 @@ const Search = () => {
           justify-between
         "
       >
-        <div
+        <div 
           className="
             text-sm 
             font-semibold 
@@ -92,7 +82,7 @@ const Search = () => {
         >
           {locationLabel}
         </div>
-        <div
+        <div 
           className="
             hidden 
             sm:block 
@@ -106,7 +96,7 @@ const Search = () => {
         >
           {durationLabel}
         </div>
-        <div
+        <div 
           className="
             text-sm 
             pl-6 
@@ -119,7 +109,7 @@ const Search = () => {
           "
         >
           <div className="hidden sm:block">{guestLabel}</div>
-          <div
+          <div 
             className="
               p-2 
               bg-rose-500 
@@ -127,12 +117,12 @@ const Search = () => {
               text-white
             "
           >
-            {Submitted ? <RxCross2 size={18} /> : <BiSearch size={18} />}
+            <BiSearch size={18} />
           </div>
         </div>
       </div>
     </div>
   );
-};
-
+}
+ 
 export default Search;

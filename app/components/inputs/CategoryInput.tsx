@@ -24,8 +24,6 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
         p-4
         flex
         flex-col
-        justify-center
-        items-center
         gap-3
         hover:border-black
         transition
