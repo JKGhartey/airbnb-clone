@@ -11,7 +11,7 @@ import { SafeUser } from "@/app/types";
 import Categories from "./Categories";
 
 interface NavbarProps {
-  currentUser: SafeUser | undefined |null;
+  currentUser?: SafeUser | null;
 }
 
 const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
@@ -27,7 +27,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
           </div>
         </Container>
       </div>
-      <Categories/>
+      <Categories />
     </div>
   );
 };
