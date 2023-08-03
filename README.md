@@ -1,8 +1,32 @@
-This repository contains an Airbnb clone built with Next.js and styled with Tailwind CSS. It aims to replicate the key functionalities and design of Airbnb, allowing users to search for accommodations, view property details, make bookings, and more.
+# Luxe - Airbnb-inspired Accommodation Booking App
 
-##Features
-Next.js: The project is developed using Next.js, a React framework for building server-rendered and static websites. Next.js provides powerful features such as server-side rendering, static site generation, and built-in routing.
-Tailwind CSS: The user interface is styled using Tailwind CSS, a highly customizable CSS framework that follows a utility-first approach. Tailwind CSS provides a comprehensive set of pre-built components and utility classes, allowing for rapid development.
-Search and Filtering: Users can search for accommodations based on various criteria such as location, check-in/check-out dates, and number of guests. The search results can be filtered and sorted to help users find their desired properties.
-Property Listings: The application displays property listings with relevant information, including property images, pricing, amenities, and descriptions. Users can view additional details about each property and navigate to individual property pages.
-Booking and Reservations: Users can make bookings for available accommodations, specifying the duration of their stay and reviewing the total cost. The application handles the booking process, ensuring accurate reservations.
+## Description:
+Luxe is a web application built with Next.js, Tailwind CSS, Prisma, and MongoDB. Inspired by Airbnb, Luxe enables users to discover, search, and book various accommodations, making it a seamless and enjoyable experience for travelers and property owners alike. With its intuitive user interface and robust backend technologies, Luxe offers a platform where users can easily find their dream accommodations and property owners can showcase their listings to a wide audience.
+
+## Features:
+
+User-friendly interface for effortless navigation and seamless booking experiences.
+Advanced search functionality with filters for location, amenities, pricing, and more.
+Secure user authentication and profile management for travelers and property owners.
+Property owners can list their accommodations with detailed descriptions and images.
+Booking management system with notifications and real-time availability updates.
+Integrated payment gateway for secure and hassle-free transactions.
+Admin dashboard for easy management of properties, bookings, and user data.
+Responsive design for a seamless experience across all devices.
+Installation:
+
+Clone this repository: git clone https://github.com/your_username/luxe.git
+Navigate to the project directory: cd luxe
+Install dependencies: npm install
+Set up environment variables (if required).
+Run the development server: npm run dev
+Open your browser and access the app at http://localhost:3000.
+Configuration:
+Before running the app, make sure to set up the necessary environment variables in a .env file. You may require credentials for MongoDB and any other APIs or services used in the app.
+
+## Dependencies:
+
+1.  Next.js: 12.0.0
+2.  Tailwind CSS: 2.2.19
+3.  Prisma: 3.0.2
+4.  MongoDB: Latest version
